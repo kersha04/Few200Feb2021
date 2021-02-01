@@ -4,14 +4,19 @@ import { CommunicationsComponent } from './communications.component';
 import { ShoppingComponent } from './components/shopping/shopping.component';
 import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
 import { ShoppingEntryComponent } from './components/shopping-entry/shopping-entry.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ShoppingDataService } from './services';
 
 
 
 @NgModule({
   declarations: [CommunicationsComponent, ShoppingComponent, ShoppingListComponent, ShoppingEntryComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
-  exports: [CommunicationsComponent]
+  exports: [CommunicationsComponent],
+  providers: [ShoppingDataService]
+
 })
 export class CommunicationsModule { }

@@ -1,9 +1,20 @@
-<form>
+<form [formGroup]="form"
+      (ngSubmit)="submit()">
   <div class="form-group">
     <input type="text"
            name="item"
-           class="form-control">
+           class="form-control"
+           formControlName="item">
+    <div class="alert alert-danger"
+         *ngIf="item.invalid && (item.touched || item.dirty)">
+      <p *ngIf="item.errors?.required">This is required.</p>
+      <p *ngIf="item.errors?.maxlength">That is too many characters!.</p>
+    </div>
   </div>
   <button type="submit"
           class="btn btn-primary">Add Item To Your List</button>
 </form>
+<!--
+<pre>
+  {{item.errors | json}}
+</pre> -->
