@@ -1,5 +1,6 @@
 <div>
   <button (click)="decrement()"
+          [disabled]="(decrementDisabled$ | async)"
           class="btn btn-primary">-</button>
   <span>{{ current$ | async }}</span>
   <button (click)="increment()"
@@ -7,5 +8,9 @@
 </div>
 <div>
   <button (click)="reset()"
+          [disabled]="(resetDisabled$ | async)"
           class="btn btn-primary">Reset</button>
 </div>
+
+
+<app-countby></app-countby>
