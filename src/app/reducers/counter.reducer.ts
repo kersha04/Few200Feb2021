@@ -4,7 +4,6 @@ import * as actions from '../actions/counter.actions';
 export interface CounterState {
   current: number;
   by: number;
-
 }
 
 const initialState: CounterState = {
