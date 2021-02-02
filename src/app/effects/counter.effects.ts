@@ -23,9 +23,9 @@ export class CounterEffects {
     this.actions$.pipe(
       ofType(appActions.applicationStarted),
       map(() => localStorage.getItem('by')),
-      filter(by => by !== null),
-      map(by => parseInt(by, 10)),
-      map(by => actions.countBySet({ by }))
+      filter(by => by !== null), // stop here if null. Nothing was saved
+      map(by => parseInt(by, 10)), // otherwise get what was saved, and parse it into a base 10 number
+      map(by => actions.countBySet({ by })) // what comes our here is sent to the reducer
     ), { dispatch: true });
 
 
