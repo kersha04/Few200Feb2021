@@ -4,3 +4,7 @@ https://github.com/FrontEndWeb200/few200feb2021
 
 npm i @ngrx/store
 npm i @ngrx/store-devtools
+
+add redux extension to chrome
+
+chrome tools => redux tab => state => raw => shows our application state
