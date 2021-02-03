@@ -9,6 +9,15 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class AppEffects {
 
+  percolateError$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(actions.songAddedFailure),
+      map(e => appActions.applicationError({
+        feature: 'Playlists',
+        error: e.errorMessage
+      }))
+    ));
+
   loadSongs$ = createEffect(() =>
     this.actions$.pipe(
       ofType(appActions.applicationStarted),
