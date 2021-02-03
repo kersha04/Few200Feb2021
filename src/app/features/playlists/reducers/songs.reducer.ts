@@ -17,7 +17,7 @@ export interface SongState extends EntityState<SongEntity> {
 
 export const adapter = createEntityAdapter<SongEntity>();
 
-// const initialState = adapter.getInitialState();
+const initialState = adapter.getInitialState();
 // start with some const data
 
 // const initialState: SongState = {
@@ -28,17 +28,10 @@ export const adapter = createEntityAdapter<SongEntity>();
 //   }
 // };
 
-const initialState: SongState = {
-  ids: ['a', 'b'],
-  entities: {
-    a: { id: 'a', title: 'Bring Noize', artist: 'Pubic Enemy' },
-    b: { id: 'b', title: 'C.R.E.A.M', artist: 'Wu-Tang', album: 'Enter the Wootie-Tang' }
-  }
-};
-
 const reducerFunction = createReducer(
   initialState,
-  on(actions.songAdded, (s, a) => adapter.addOne(a.payload, s))
+  on(actions.songAdded, (s, a) => adapter.addOne(a.payload, s)),
+  on(actions.loadSongsSucceeded, (s, a) => adapter.setAll(a.payload, s))
 );
 
 export function reducer(state: SongState = initialState, action: Action): SongState {

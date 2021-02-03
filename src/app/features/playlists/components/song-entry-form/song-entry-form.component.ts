@@ -30,6 +30,10 @@ export class SongEntryFormComponent implements OnInit {
       this.form.reset();
       focusMe.focus();
     } else {
+      Object.keys(this.form.controls).forEach(field => {
+        const control = this.form.get(field);
+        control.markAsTouched({ onlySelf: true });
+      });
       focusMe.focus();
     }
 
