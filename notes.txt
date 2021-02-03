@@ -8,3 +8,10 @@ npm i @ngrx/store-devtools
 add redux extension to chrome
 
 chrome tools => redux tab => state => raw => shows our application state
+
+
+.notes {
+  "note": "maybe you should use m or % instead of px"
+}
+
+https://gist.github.com/JeffryGonzalez/5a81436f89445a3979c2d0536712cbd3

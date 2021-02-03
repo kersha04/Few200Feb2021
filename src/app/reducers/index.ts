@@ -1,5 +1,7 @@
 import * as fromCounter from './counter.reducer';
 import { createSelector } from '@ngrx/store';
+import * as models from '../models';
+
 
 export interface AppState {
   counter: fromCounter.CounterState;
@@ -60,4 +62,10 @@ export const selectCountDecrementDisabled = createSelector(
   selectCountCurrent,
   selectCountBy,
   (c, b) => (c - b) < 0
+);
+
+export const selectCounterDashboard = createSelector(
+  selectCountCurrent,
+  selectCountBy,
+  (current, by) => ({ by, current } as models.CounterDashboard)
 );
